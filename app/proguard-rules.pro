@@ -15,3 +15,37 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-keepattributes **
+-keepattributes Signature
+-keepattributes *Annotation*
+
+-keepattributes JNINamespace
+-keepattributes CalledByNative
+-keepattributes EnclosingMethod
+
+
+-keep class org.xwalk.**{ *; }
+-keep interface org.xwalk.**{ *; }
+
+-keep class org.crosswalk.engine.** { *; }
+-keep class org.chromium.** { *; }
+
+-keep class org.crosswalkproject.**{ *; }
+-keep class SevenZip.**{*;}
+
+-keepclasseswithmembers class org.chromium.** {*;}
+
+-keep @org.chromium.base.UsedBy* class *
+-keepclassmembers class * {
+    @org.chromium.base.UsedBy* *;
+}
+
+-keep @org.chromium.base.annotations.JNINamespace* class *
+-keepclassmembers class * {
+    @org.chromium.base.annotations.CalledByNative* *;
+}
+
+-dontnote org.chromium.net.AndroidKeyStore
+-dontnote org.chromium.net.UrlRequest$ResponseHeadersMap
+-dontwarn org.chromium.**

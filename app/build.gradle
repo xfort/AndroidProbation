@@ -1,29 +1,69 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    signingConfigs {
+        config {
+            keyAlias 'zhipukeji'
+            keyPassword Key_Password
+            storeFile file(keyFilePath)
+            storePassword Keystore_Password
+        }
+    }
+
     compileSdkVersion Integer.parseInt(CompileSdkVersion)
     buildToolsVersion BuildToolsVersion
     defaultConfig {
         applicationId "com.xiushuang.xprobation"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
     }
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets{
+//        main{
+//            jniLibs.srcDirs=['libs']
+//        }
+    }
+    dexOptions {
+        javaMaxHeapSize "5g"
+    }
+    lintOptions {
+        warning "MissingTranslation"
+    }
+
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile support_design
     testCompile 'junit:junit:4.12'
+
+    compile support_design
+    compile xwalk_core_library
+}
+
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2'
+    }
 }

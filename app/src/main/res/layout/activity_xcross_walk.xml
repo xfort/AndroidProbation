@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/activity_xcross_walk"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xiushuang.xprobation.sample.XCrossWalkActivity">
+
+    <Button
+        android:id="@+id/xwalk_go_btn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:text="GO"/>
+
+    <EditText
+        android:id="@+id/xwalk_input_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/xwalk_go_btn"/>
+
+    <org.xwalk.core.XWalkView
+        android:id="@+id/xwalk_wv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/xwalk_go_btn"/>
+</RelativeLayout>
