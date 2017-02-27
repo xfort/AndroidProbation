@@ -7,6 +7,7 @@ import android.widget.EditText;
 
 import com.xiushuang.xprobation.R;
 
+import org.xwalk.core.XWalkNavigationHistory;
 import org.xwalk.core.XWalkView;
 
 public class XCrossWalkActivity extends AppCompatActivity implements View.OnClickListener {
@@ -23,11 +24,18 @@ public class XCrossWalkActivity extends AppCompatActivity implements View.OnClic
         findViewById(R.id.xwalk_go_btn).setOnClickListener(this);
     }
 
-
     @Override
     public void onClick(View v) {
         xWalkView.loadUrl(inputET.getText().toString());
 //        getSupportFragmentManager().beginTransaction().commitAllowingStateLoss()
     }
 
+    @Override
+    public void onBackPressed() {
+        if (xWalkView != null && xWalkView.getNavigationHistory().canGoBack()) {
+            xWalkView.getNavigationHistory().navigate(XWalkNavigationHistory.Direction.BACKWARD, 1);
+            return;
+        }
+        super.onBackPressed();
+    }
 }

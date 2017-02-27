@@ -26,14 +26,17 @@ android {
         }
     }
     buildTypes {
+        debug{
+            signingConfig signingConfigs.config
+        }
         release {
             signingConfig signingConfigs.config
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+//    -optimize
     sourceSets{
 //        main{
 //            jniLibs.srcDirs=['libs']
@@ -49,15 +52,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
-
     compile support_design
     compile xwalk_core_library
+    compile project(':CordovaAndroidFramework')
 }
 
 

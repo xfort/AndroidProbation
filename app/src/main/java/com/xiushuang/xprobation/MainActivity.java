@@ -6,8 +6,10 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
+import com.xiushuang.xprobation.sample.VideoJSActivity;
 import com.xiushuang.xprobation.sample.XCrossWalkActivity;
 import com.xiushuang.xprobation.utils.AdapterItemListener;
 
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void menuClick(View view, int index, MenuItem obj, Message msg) {
+        Log.d("MainAct", "menuClick()_" + obj.title);
         if (obj == null) {
             return;
         }
@@ -73,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startVideoJS() {
-
+        Intent intent = new Intent(this, VideoJSActivity.class);
+        startActivity(intent);
     }
 
     private void startCrossWalk() {

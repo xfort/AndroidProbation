@@ -1,6 +1,7 @@
 package com.xiushuang.xprobation;
 
 import android.os.Message;
+import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
 import com.xiushuang.xprobation.utils.AdapterItemListener;
 
 import java.util.ArrayList;
+
+import static android.os.Build.VERSION_CODES.M;
 
 /**
  * Created by Mac on 17/2/21.
@@ -60,7 +63,8 @@ class MainMenuVH extends RecyclerView.ViewHolder implements View.OnClickListener
 
     public MainMenuVH(View itemView) {
         super(itemView);
-        itemView.setOnClickListener(this);
+        ((MainMenuView)itemView).titleBtn.setOnClickListener(this);
+//        itemView.setOnClickListener(this);
     }
 
     @Override
