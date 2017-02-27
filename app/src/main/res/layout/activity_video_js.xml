@@ -18,6 +18,11 @@
         android:layout_height="wrap_content"
         android:hint="输入视频地址"/>
 
+    <EditText
+        android:id="@+id/videojs_type_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <WebView
         android:id="@+id/videojs_webview"
         android:layout_width="match_parent"

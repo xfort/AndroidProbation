@@ -39,7 +39,7 @@ public class VideoJSActivity extends AppCompatActivity {
         });
 
         webView.addJavascriptInterface(jsHandler, "xjsHandler");
-        webView.loadUrl("file:///android_assets/web/videojs.html");
+        webView.loadUrl("file:///android_asset/web/videojs.html");
 
 //        try {
 //            InputStreamReader fileInput = new InputStreamReader(getAssets().open("web/videojs.html"));
