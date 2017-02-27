@@ -18,7 +18,28 @@
 <script src="http://vjs.zencdn.net/5.17.0/video.js"></script>
 <script>
 var player = videojs('my-player');
+</script>
 
+<script>
+var Act_SetVideoUrl="set_videosource";
+
+function appMessageListener(message){
+console.log("appMessageListener()",message);
+var actType=message['act_type'];
+switch(actType){
+case Act_SetVideoUrl:
+parseVideoMsg(message);
+break;
+}
+
+function sendAppMessage(message){
+console.log("sendAppMessage()",message);
+window.xjsHandler.onMessage(message);
+}
+
+function parseVideoMsg(msg){
+setVideoSourceArray(msg['video_sourcearray']);
+}
 
 </script>
 
@@ -27,6 +48,9 @@ var player = videojs('my-player');
 player.src({src:videoUrl,type:videoType});
  }
 
+function setVideoSourceArray(sourceArray){
+player.src(sourceArray);
+}
 </script>
 </body>
 </html>

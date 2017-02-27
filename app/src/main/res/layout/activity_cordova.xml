@@ -11,8 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.xiushuang.xprobation.sample.CordovaActivity">
 
-    <org.apache.cordova.engine.SystemWebView
-        android:id="@+id/cordova_systemwv"
+    <EditText
+        android:id="@+id/cordova_input_ET"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

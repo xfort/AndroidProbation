@@ -23,7 +23,7 @@
 -keepattributes JNINamespace
 -keepattributes CalledByNative
 -keepattributes EnclosingMethod
-
+-keepattributes JavascriptInterface
 
 -keep class org.xwalk.**{ *; }
 -keep interface org.xwalk.**{ *; }
@@ -49,3 +49,11 @@
 -dontnote org.chromium.net.AndroidKeyStore
 -dontnote org.chromium.net.UrlRequest$ResponseHeadersMap
 -dontwarn org.chromium.**
+
+
+-keep class org.apache.cordova.**{*;}
+-keepclasseswithmembers class org.apache.cordova.**{*;}
+
+-keepclassmembers class com.xiushuang.xprobation.utils.JSHandler {
+   public *;
+}

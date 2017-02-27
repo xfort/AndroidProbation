@@ -31,12 +31,6 @@ public class CordovaActivity extends AppCompatActivity {
     private void initCordova() {
         wvHandler = new CordovaWebViewHandler();
         cordovaWebView = wvHandler.newCordovaWebView(this);
-
-//        SystemWebView systemWV = (SystemWebView) findViewById(R.id.cordova_systemwv);
-//        ConfigXmlParser parser = new ConfigXmlParser();
-//        parser.parse(this);
-//        cordovaWebView = new CordovaWebViewImpl(new SystemWebViewEngine(systemWV));
-//        cordovaWebView.init(new CordovaInterfaceImpl(this), parser.getPluginEntries(), parser.getPreferences());
     }
 
     @Override
@@ -98,6 +92,4 @@ public class CordovaActivity extends AppCompatActivity {
         wvHandler.onOptionsItemSelected(item, cordovaWebView);
         return super.onOptionsItemSelected(item);
     }
-
-
 }
